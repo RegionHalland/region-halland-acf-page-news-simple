@@ -1,0 +1,13 @@
+{
+    "name": "regionhalland/region-halland-acf-page-news-simple",
+    "description": "Enkel nyhetsfunktion",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roland Hydén",
+            "email": "Roland.Hyden@Regionhalland.se"
+        }
+    ],
+    "require": {}
+}
