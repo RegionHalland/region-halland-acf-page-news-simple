@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page News Simple
 	Description: ACF-fält för extra fält nederst på en nyhets-sida
-	Version: 1.1.0
+	Version: 1.2.0
 	Author: Roland Hydén
 	License: Free to use
 	Text Domain: vuxhalland
@@ -136,13 +136,23 @@
 		// Loopa igenom valda utbildningar
 		foreach ($pages as $page) {
 
-			// Hämta ACF-objektet för link
+						// Länk
 			$field_link 		= get_field_object('field_1000014', $page->ID);
-			
-			// Spara ner ACF-data i page-arrayen
-			$page->link_title 	= $field_link['value']['title'];
-			$page->link_url 	= $field_link['value']['url'];
-			$page->link_target 	= $field_link['value']['target'];
+			if (is_array($field_link['value'])) {
+				$page->link_title 	= $field_link['value']['title'];
+				$page->link_url 	= $field_link['value']['url'];
+				$page->link_target 	= $field_link['value']['target'];
+				if ($page->link_url) {
+					$page->link_has_url = 1;
+				} else {
+					$page->link_has_url = 0;
+				}
+			} else {
+				$page->link_title 	= "";
+				$page->link_url 	= "";
+				$page->link_target 	= "";
+				$page->link_has_url = 0;
+			}
 			
 			// Lägg till sidans url 	
 			$page->url 			= get_page_link($page->ID);

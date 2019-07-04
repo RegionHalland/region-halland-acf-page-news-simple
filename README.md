@@ -59,7 +59,10 @@ OBS! Justera så att du hämtar aktuell version.
     <h3>{{ $nyhet->post_title }}</h3>
     <p>{{ $nyhet->description }}</p>
     <p>{!! wpautop($nyhet->post_content) !!}</p>
-    <a href="{{ $nyhet->link_url }}" target="{{ $nyhet->link_target }}">{{ $nyhet->link_title }}</a><br>
+    @if($nyhet->link_hsa_url == 1)
+    <a href="{{ $nyhet->link_url }}" target="{{ $nyhet->link_target }}">{{ $nyhet->link_title }}</a>
+    @endif
+    <br>
   @endforeach
 @endif
 ```
@@ -96,6 +99,7 @@ array (size=2)
       public 'filter' => string 'raw' (length=3)
       public 'link_title' => string 'Expressen' (length=9)
       public 'link_url' => string 'http://www.expressen.se' (length=23)
+      public 'link_has_url' =>  => int 1
       public 'link_target' => string '_blank' (length=6)
       public 'url' => string 'http://exempel.se/nyhet/aldu-integer' (length=36)
       public 'image' => string '' (length=0)
@@ -130,6 +134,7 @@ array (size=2)
       public 'link_title' => string 'Aftonbladet' (length=11)
       public 'link_url' => string 'http://www.afonbladet.se' (length=24)
       public 'link_target' => string '' (length=0)
+      public 'link_has_url' =>  => int 0
       public 'url' => string 'http://exempel.se/lorem-ipsum/' (length=30)
       public 'image' => string '' (length=0)
       public 'image_url' => boolean false
