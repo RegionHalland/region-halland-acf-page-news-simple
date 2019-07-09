@@ -6,10 +6,10 @@
 	/*
 	Plugin Name: Region Halland ACF Page News Simple
 	Description: ACF-fält för extra fält nederst på en nyhets-sida
-	Version: 1.2.0
+	Version: 1.3.0
 	Author: Roland Hydén
-	License: Free to use
-	Text Domain: vuxhalland
+	License: GPL-3.0
+	Text Domain: regionhalland
 	*/
 
 	// vid 'init', anropa funktionen region_halland_register_utbildning()
@@ -76,10 +76,10 @@
         		    ),
         		    1 => array(
 			        	'key' => 'field_1000015',
-			            'label' => __('Text på framsida', 'regionhalland'),
+			            'label' => __('Nyhetsingress', 'regionhalland'),
 			            'name' => 'name_1000015',
 			            'type' => 'textarea',
-			            'instructions' => __('Kortfattad text kring nyheten. Max 80 tecken.', 'regionhalland'),
+			            'instructions' => __('Nyhetsingress', 'regionhalland'),
 			            'required' => 0,
 			            'conditional_logic' => 0,
 			            'wrapper' => array(
@@ -89,8 +89,8 @@
 			            ),
 			            'default_value' => '',
 			            'placeholder' => __('', 'regionhalland'),
-			            'maxlength' => 80,
-			            'rows' => 2,
+			            'maxlength' => '',
+			            'rows' => 4,
 			            'new_lines' => '',
 			        ),
 
@@ -166,6 +166,48 @@
 
 		// Returnera valda nyheter
 		return $pages;
+	}
+
+	// Returnera nyheter, default = 3
+	function get_region_halland_get_page_news_simple_single($id)
+	{
+		
+		// ID för aktuell post
+		$myID = $id;
+		
+		// Hämta page information
+		$page = get_post($myID);
+		
+		// Länk
+		$field_link = get_field_object('field_1000014', $page->ID);
+		if (is_array($field_link['value'])) {
+			$page->link_title 	= $field_link['value']['title'];
+			$page->link_url 	= $field_link['value']['url'];
+			$page->link_target 	= $field_link['value']['target'];
+			if ($page->link_url) {
+				$page->link_has_url = 1;
+			} else {
+				$page->link_has_url = 0;
+			}
+		} else {
+			$page->link_title 	= "";
+			$page->link_url 	= "";
+			$page->link_target 	= "";
+			$page->link_has_url = 0;
+		}
+		
+		// Lägg till sidans url 	
+		$page->url 			= get_page_link($page->ID);
+		
+		// Bild
+		$page->image 		= get_the_post_thumbnail($page->ID);
+		$page->image_url 	= get_the_post_thumbnail_url($page->ID);
+
+		$page->description 	= get_field('name_1000015', $page->ID);
+
+		// Returnera valda nyheter
+		return $page;
+		
 	}
 
 	// Metod som anropas när pluginen aktiveras

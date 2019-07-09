@@ -10,6 +10,15 @@ Nedan följer instruktioner hur du kan använda pluginet "region-halland-acf-pag
 Denna plugin skapar en post_type med namn "nyhet" med tillhörande fält
 
 
+## Licensmodell
+
+Denna plugin använder licensmodell GPL-3.0. Du kan läsa mer om denna licensmodell på:
+```sh
+A) Gnu.org (https://www.gnu.org/licenses/gpl-3.0.html)
+B) Wikipedia (https://sv.wikipedia.org/wiki/GNU_General_Public_License)
+```
+
+
 ## Installation och aktivering
 
 ```sh
@@ -143,6 +152,14 @@ array (size=2)
 
 
 ## Versionhistorik
+
+### 1.3.0
+- Uppdaterat information om licensmodell
+- Lagt till funktion för att hämta ut en enskild nyhet
+- Utökat ingress-fältet från 80 tecken till obegränsat
+
+### 1.2.0
+- Koll om länk finns, annars returnera tom link-array
 
 ### 1.1.0
 - Uppdaterat readme med instruktioner
