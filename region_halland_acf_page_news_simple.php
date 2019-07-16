@@ -6,7 +6,7 @@
 	/*
 	Plugin Name: Region Halland ACF Page News Simple
 	Description: ACF-fält för extra fält nederst på en nyhets-sida
-	Version: 1.3.0
+	Version: 1.4.0
 	Author: Roland Hydén
 	License: GPL-3.0
 	Text Domain: regionhalland
