@@ -152,6 +152,9 @@ array (size=2)
 
 ## Versionhistorik
 
+### 1.5.0
+- "Alt-text för puffbilder tillgänglig i API:et"
+
 ### 1.4.0
 - "Bifogat fil med licensmodell"
 
