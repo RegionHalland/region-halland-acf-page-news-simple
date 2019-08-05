@@ -112,6 +112,7 @@ array (size=2)
       public 'url' => string 'http://exempel.se/nyhet/aldu-integer' (length=36)
       public 'image' => string '' (length=0)
       public 'image_url' => boolean false
+      public 'image_alt' => string '' (length=0)
       public 'description' => string 'Aldu integer id metus pellentesque, suscipit mauris vel.' (length=56)
   1 => 
     object(WP_Post)[7619]
@@ -146,6 +147,7 @@ array (size=2)
       public 'url' => string 'http://exempel.se/lorem-ipsum/' (length=30)
       public 'image' => string '' (length=0)
       public 'image_url' => boolean false
+      public 'image_alt' => string '' (length=0)
       public 'description' => string 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' (length=56)
 ```
 
@@ -153,10 +155,10 @@ array (size=2)
 ## Versionhistorik
 
 ### 1.5.0
-- "Alt-text för puffbilder tillgänglig i API:et"
+- Alt-text för puffbilder tillgänglig i API:et
 
 ### 1.4.0
-- "Bifogat fil med licensmodell"
+- Bifogat fil med licensmodell
 
 ### 1.3.0
 - Uppdaterat information om licensmodell
